@@ -6,7 +6,14 @@
             "email": "multiallin@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "wp-cli/php-cli-tools": "^0.11.12"
+    },
+    "autoload": {
+        "files": [
+            "src/Cli.php"
+        ]
+    },
     "bin": [
         "bin/brain-games"
     ]

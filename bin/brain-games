@@ -12,6 +12,4 @@ if (file_exists($autoloadPath1)) {
 
 use Brain\Games\Cli;
 
-print_r("Welcome to the Brain Games!\n");
-
 Cli\cli();

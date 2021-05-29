@@ -1,6 +1,5 @@
 #!/usr/bin/env php
 <?php
-
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
 $autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
 
@@ -22,9 +21,24 @@ line('Answer "yes" if the number is even, otherwise answer "no".');
 //form data for game
 function dataOfTask() :array
 {
-    $question = rand(1,100);
-    $rightAnswer =  ($question % 2 === 0) ? "yes" : "no";
-    return [$question, $rightAnswer];
+    $mathOperators = ["+" , "-", "*"];
+    $valueForMathExpr1 = rand(1, 100);
+    $valueForMathExpr2 = rand(1, 100);
+    $currentOperator = $mathOperators[array_rand($mathOperators)];
+    $question = "{$valueForMathExpr1} {$currentOperator} {$valueForMathExpr2}";
+    $rightAnswer = null;
+    switch ($currentOperator) {
+        case "+":
+            $rightAnswer = $valueForMathExpr1 + $valueForMathExpr2;
+            break;
+        case "-":
+            $rightAnswer = $valueForMathExpr1 - $valueForMathExpr2;
+            break;
+        case "*":
+            $rightAnswer = $valueForMathExpr1 * $valueForMathExpr2;
+            break;
+    }
+    return [$question, (string)$rightAnswer];
 }
 //process of the game
 function game() :bool
@@ -44,7 +58,6 @@ function game() :bool
     }
     return true;
 }
-//if user win the game will congratulate him
+
 $congratulationsText = (game()) ? "Congratulations, %s!" : "Let's try again, %s!";
 line($congratulationsText, $name);
-

@@ -1,4 +1,5 @@
 <?php
+
 namespace Brain\Games\Games\brain\calc;
 
 use Brain\Games\Engine;
@@ -8,8 +9,7 @@ const TASK_TEXT = 'What is the result of the expression?';
 
 function task()
 {
-    $dataOfTask = function() :array
-    {
+    $dataOfTask = function () {
         $mathOperators = ["+" , "-", "*"];
         $valueForMathExpr1 = rand(1, 100);
         $valueForMathExpr2 = rand(1, 100);
@@ -31,4 +31,3 @@ function task()
     };
     Engine\gameEngine($dataOfTask, MAX_ATTEMPT, TASK_TEXT);
 }
-

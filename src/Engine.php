@@ -19,7 +19,7 @@ function gameEngine($dataOfTask, $numberOfAttempt, $textForTask)
         line("Question: %s", $question);
         $userAnswer = prompt("Your answer");
         if ($rightAnswer !== $userAnswer) {     //checking the answer
-            $congratulationsText ="Let's try again, %s!";
+            $congratulationsText = "Let's try again, %s!";
             line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.");
             break;
         }
@@ -27,4 +27,3 @@ function gameEngine($dataOfTask, $numberOfAttempt, $textForTask)
     }
     line($congratulationsText, $name);
 }
-

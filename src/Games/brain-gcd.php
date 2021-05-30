@@ -14,17 +14,12 @@ function task()
         $value2 = rand(1, 100);
         $question = "{$value1} {$value2}";
         $rightAnswer = null;
-        if ($value1 === $value2) {
-            $rightAnswer = $value1;
-        } else {
-            for ($minValue = ($value1 < $value2) ? $value1 : $value2; $minValue > 0; $minValue--) {
-                if (($value1 % $minValue) === 0 && ($value2 % $minValue) === 0) {
-                    $rightAnswer = $minValue;
-                    break;
-                }
+        for ($minValue = ($value1 < $value2) ? $value1 : $value2; $minValue > 0; $minValue--) {
+            if (($value1 % $minValue) === 0 && ($value2 % $minValue) === 0) {
+                $rightAnswer = $minValue;
+                break;
             }
         }
-
         return [$question, (string)$rightAnswer];
     };
     Engine\gameEngine($dataOfTask, MAX_ATTEMPT, TASK_TEXT);
